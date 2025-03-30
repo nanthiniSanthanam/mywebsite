@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyWebsite - Profile</title>
+    <!-- Link to your existing Profile.css file -->
+    <link rel="stylesheet" href="Profile.css" />
+  </head>
+  <body>
+    <div class="profile-container">
+      <header>
+        <div class="logo">MyWebsite</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile" class="active">Profile</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/chat">AI Chat</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <main class="profile-main">
+        <h1>User Profile</h1>
+        
+        <!-- Message display area -->
+        <div id="message-container"></div>
+        
+        <div class="profile-content">
+          <div class="profile-sidebar">
+            <div class="avatar-container">
+              <img 
+                src="/default-avatar.png" 
+                alt="User avatar" 
+                class="avatar-image" 
+                id="avatar-image"
+              />
+              <!-- Avatar upload section (shown only in editing mode) -->
+              <div class="avatar-upload" id="avatar-upload" style="display: none;">
+                <label for="avatar-input" class="avatar-label">
+                  Change Photo
+                </label>
+                <input 
+                  type="file" 
+                  id="avatar-input"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+            
+            <div class="profile-stats">
+              <div class="stat-item">
+                <span class="stat-label">Member Since</span>
+                <span class="stat-value">Jan 15, 2025</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Last Login</span>
+                <span class="stat-value">Today</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="profile-details">
+            <form id="profile-form">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  required
+                  disabled
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  disabled
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea
+                  id="bio"
+                  name="bio"
+                  rows="4"
+                  disabled
+                ></textarea>
+              </div>
+              
+              <div class="preferences-section">
+                <h3>Preferences</h3>
+                
+                <div class="form-group checkbox-group">
+                  <input
+                    type="checkbox"
+                    id="darkMode"
+                    name="preferences.darkMode"
+                    disabled
+                  />
+                  <label for="darkMode">Dark Mode</label>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                  <input
+                    type="checkbox"
+                    id="notifications"
+                    name="preferences.notifications"
+                    disabled
+                  />
+                  <label for="notifications">Enable Notifications</label>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                  <input
+                    type="checkbox"
+                    id="newsletter"
+                    name="preferences.newsletter"
+                    disabled
+                  />
+                  <label for="newsletter">Subscribe to Newsletter</label>
+                </div>
+              </div>
+              
+              <!-- Button group: either shows the "Edit Profile" button or Save/Cancel buttons in editing mode -->
+              <div class="button-group" id="button-group">
+                <button type="button" id="edit-button" class="edit-button">
+                  Edit Profile
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      
+      <footer>
+        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">Facebook</a>
+          <a href="#" class="social-icon">Twitter</a>
+          <a href="#" class="social-icon">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+    
+    <!-- Link to the JavaScript file -->
+    <script src="Profile.js"></script>
+  </body>
+</html>

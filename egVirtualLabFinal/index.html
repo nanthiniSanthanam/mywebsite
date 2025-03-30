@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Engineering Graphics</title>
+
+    <!-- ===== BOOTSTRAP 5 CSS (CDN) ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="CSS/styles.css" />
+</head>
+
+<body>
+    <header class="d-flex align-items-center">
+        <div class="logo">Interactive Engineering Graphics</div>
+        <div class="theme-selector">
+            <!-- Using Bootstrap "btn btn-sm btn-outline-light/dark/etc." for styling -->
+            <button class="theme-btn btn btn-sm btn-outline-light" onclick="setTheme('light')">Light</button>
+            <button class="theme-btn btn btn-sm btn-outline-light" onclick="setTheme('dark')">Dark</button>
+            <button class="theme-btn btn btn-sm btn-outline-light" onclick="setTheme('colorful')">Colorful</button>
+        </div>
+    </header>
+
+    <main class="flex-grow-1 d-flex">
+        <aside class="sidebar">
+            <div class="sidebar-title">CONTENTS</div>
+
+            <div class="unit-title" onclick="toggleUnit(this)">
+                <span>Introduction</span>
+                <span class="unit-toggle">▾</span>
+            </div>
+            <div class="unit-content">
+                <div class="topic" onclick="loadExperiment('importance.htm')">Importance of Graphics</div>
+                <div class="topic" onclick="loadExperiment('instruments.htm')">Drafting Instruments</div>
+                <div class="topic" onclick="loadExperiment('conventions.htm')">BIS Conventions</div>
+                <div class="topic" onclick="loadExperiment('layout.htm')">Drawing Sheet Layout</div>
+                <div class="topic" onclick="loadExperiment('lettering.htm')">Lettering and Dimensioning</div>
+                <div class="topic" onclick="loadExperiment('constructions.htm')">Basic Geometrical Constructions</div>
+            </div>
+
+            <div class="unit-title unit-collapsed" onclick="toggleUnit(this)">
+                <span>UNIT 1: Plane Curves</span>
+                <span class="unit-toggle">▾</span>
+            </div>
+            <div class="unit-content">
+                <div class="topic" onclick="loadExperiment('ellipse.html')">Ellipse</div>
+                <div class="topic" onclick="loadExperiment('parabola.htm')">Parabola</div>
+                <div class="topic" onclick="loadExperiment('hyperbola.htm')">Hyperbola</div>
+                <div class="topic" onclick="loadExperiment('cycloid.html')">Cycloid</div>
+                <div class="topic" onclick="loadExperiment('epicycloid.htm')">Epicycloid</div>
+                <div class="topic" onclick="loadExperiment('hypocycloid.htm')">Hypocycloid</div>
+                <div class="topic" onclick="loadExperiment('involutes.htm')">Involutes</div>
+                <div class="topic" onclick="loadExperiment('tangents.htm')">Tangents and Normals</div>
+                <div class="topic" onclick="loadExperiment('points.htm')">Projection of Points</div>
+            </div>
+
+            <div class="unit-title unit-collapsed" onclick="toggleUnit(this)">
+                <span>UNIT 2: Lines & Planes</span>
+                <span class="unit-toggle">▾</span>
+            </div>
+            <div class="unit-content">
+                <div class="topic" onclick="loadExperiment('straight-lines.htm')">Projection of Straight Lines</div>
+                <div class="topic" onclick="loadExperiment('true-lengths.htm')">True Lengths and Inclinations</div>
+                <div class="topic" onclick="loadExperiment('rotating-line.htm')">Rotating Line Method</div>
+                <div class="topic" onclick="loadExperiment('polygonal.htm')">Projection of Polygonal Surfaces</div>
+                <div class="topic" onclick="loadExperiment('circular.htm')">Projection of Circular Surfaces</div>
+            </div>
+
+            <div class="unit-title unit-collapsed" onclick="toggleUnit(this)">
+                <span>UNIT 3: Solids</span>
+                <span class="unit-toggle">▾</span>
+            </div>
+            <div class="unit-content">
+                <div class="topic" onclick="loadExperiment('prisms.htm')">Prisms</div>
+                <div class="topic" onclick="loadExperiment('pyramids.htm')">Pyramids</div>
+                <div class="topic" onclick="loadExperiment('cylinder.htm')">Cylinder</div>
+                <div class="topic" onclick="loadExperiment('cone.htm')">Cone</div>
+                <div class="topic" onclick="loadExperiment('sectioning.htm')">Sectioning of Solids</div>
+                <div class="topic" onclick="loadExperiment('true-shape.htm')">True Shape of Section</div>
+                <div class="topic" onclick="loadExperiment('3d-modeling.htm')">3D Modeling (CAD)</div>
+            </div>
+
+            <div class="unit-title unit-collapsed" onclick="toggleUnit(this)">
+                <span>UNIT 4: Development</span>
+                <span class="unit-toggle">▾</span>
+            </div>
+            <div class="unit-content">
+                <div class="topic" onclick="loadExperiment('dev-prisms.htm')">Development of Prisms</div>
+                <div class="topic" onclick="loadExperiment('dev-pyramids.htm')">Development of Pyramids</div>
+                <div class="topic" onclick="loadExperiment('dev-cylinder.htm')">Development of Cylinders</div>
+                <div class="topic" onclick="loadExperiment('dev-cone.htm')">Development of Cones</div>
+                <div class="topic" onclick="loadExperiment('isometric-principles.htm')">Isometric Principles</div>
+                <div class="topic" onclick="loadExperiment('isometric-scale.htm')">Isometric Scale</div>
+                <div class="topic" onclick="loadExperiment('isometric-solids.htm')">Isometric Projections</div>
+            </div>
+
+            <div class="unit-title unit-collapsed" onclick="toggleUnit(this)">
+                <span>UNIT 5: Sketching</span>
+                <span class="unit-toggle">▾</span>
+            </div>
+            <div class="unit-content">
+                <div class="topic" onclick="loadExperiment('multiple-views.htm')">Multiple Views Sketching</div>
+                <div class="topic" onclick="loadExperiment('pictorial-views.htm')">Pictorial Views Sketching</div>
+                <div class="topic" onclick="loadExperiment('perspective-prism.htm')">Perspective: Prisms</div>
+                <div class="topic" onclick="loadExperiment('perspective-pyramid.htm')">Perspective: Pyramids</div>
+                <div class="topic" onclick="loadExperiment('perspective-cylinder.htm')">Perspective: Cylinder</div>
+                <div class="topic" onclick="loadExperiment('perspective-cone.htm')">Perspective: Cone</div>
+            </div>
+        </aside>
+
+        <section class="content">
+            <div class="drawing-area">
+                <div class="concept-header">
+                    <div id="current-topic">Welcome to Engineering Graphics</div>
+                </div>
+
+                <div class="drawing-container">
+                    <div class="theory-section">
+                        <div id="concept-content">
+                            <h3>Engineering Graphics Learning</h3>
+                            <p class="compact-info">
+                                Select a topic from the Contents sidebar to explore engineering graphics concepts. Each
+                                topic includes:
+                                <span class="step">Definitions</span>
+                                <span class="step">Principles</span>
+                                <span class="step">Interactive visualizations</span>
+                                <span class="step">Practice exercises</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="canvas-section">
+                        <canvas id="drawing-canvas"></canvas>
+                        <iframe id="content-iframe" frameborder="0" width="100%" height="100%"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="d-flex align-items-center justify-content-center">
+        &copy; 2025 Engineering Graphics Learning Platform
+    </footer>
+
+    <!-- Link to external JavaScript files -->
+    <script src="JS/main.js"></script>
+    <script src="JS/theme.js"></script>
+
+
+</body>
+
+</html>

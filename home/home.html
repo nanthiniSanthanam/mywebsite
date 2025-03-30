@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyWebsite - Home</title>
+    <!-- Link to your existing Home.css file -->
+    <link rel="stylesheet" href="Home.css" />
+  </head>
+  <body>
+    <div class="home-container">
+      <header>
+        <div class="logo">MyWebsite</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/chat">AI Chat</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <!-- Loading spinner shown initially -->
+          <div class="loading-spinner" id="loading-spinner"></div>
+          <!-- Hero content to be revealed after data is "fetched" -->
+          <div id="hero-content" style="display: none;">
+            <h1 id="welcome-message"></h1>
+            <p>A full-featured demo showcasing React and Django integration</p>
+            <button class="cta-button">Get Started</button>
+          </div>
+        </section>
+
+        <section class="features">
+          <h2>Featured Capabilities</h2>
+          <div class="feature-grid" id="feature-grid">
+            <!-- Feature cards will be injected here -->
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">Facebook</a>
+          <a href="#" class="social-icon">Twitter</a>
+          <a href="#" class="social-icon">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+    <!-- Link to the JavaScript file -->
+    <script src="Home.js"></script>
+  </body>
+</html>

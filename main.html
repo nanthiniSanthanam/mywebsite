@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWebsite - Engineering Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      
+      .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        max-width: 100%;
+        padding: 0;
+      }
+      
+      header {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin-bottom: 0;
+      }
+      
+      nav ul li {
+        margin-left: 1rem;
+      }
+      
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem;
+      }
+      
+      nav ul li a.active {
+        font-weight: bold;
+        border-bottom: 2px solid white;
+      }
+      
+      nav ul li a:hover {
+        color: #ddd;
+      }
+      
+      main {
+        flex: 1;
+        padding: 0;
+      }
+      
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      .social-links {
+        display: flex;
+      }
+      
+      .social-icon {
+        color: white;
+        margin-left: 1rem;
+        text-decoration: none;
+      }
+      
+      iframe {
+        width: 100%;
+        height: calc(100vh - 128px); /* Adjust based on header and footer height */
+        border: none;
+      }
+      
+      .theme-selector {
+        margin-left: 20px;
+      }
+      
+      .theme-btn {
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">Engineering Learning Platform</div>
+        <div class="theme-selector">
+          <button class="theme-btn btn btn-sm btn-outline-light" onclick="setTheme('light')">Light</button>
+          <button class="theme-btn btn btn-sm btn-outline-light" onclick="setTheme('dark')">Dark</button>
+          <button class="theme-btn btn btn-sm btn-outline-light" onclick="setTheme('colorful')">Colorful</button>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#" class="nav-link active" data-page="home/home">Home</a></li>
+            <li><a href="#" class="nav-link" data-page="profile/index">Profile</a></li>
+            <li><a href="#" class="nav-link" data-page="dashboard/index">Dashboard</a></li>
+            <li><a href="#" class="nav-link" data-page="chat/index">AI Chat</a></li>
+            <li><a href="#" class="nav-link" data-page="egVirtualLabFinal/index">Engineering Graphics</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <iframe id="content-frame" src="home/home.html" title="Content"></iframe>
+      </main>
+
+      <footer>
+        <p>&copy; 2025 Engineering Learning Platform. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">Facebook</a>
+          <a href="#" class="social-icon">Twitter</a>
+          <a href="#" class="social-icon">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentFrame = document.getElementById('content-frame');
+        
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Get the page to load
+            const page = this.getAttribute('data-page');
+            
+            // Update iframe src
+            contentFrame.src = `${page}.html`;
+          });
+        });
+      });
+      
+      // Add theme switching functionality
+      function setTheme(themeName) {
+        const frame = document.getElementById('content-frame');
+        // Only attempt to call the function if the current page is Engineering Graphics
+        if (frame.src.includes('egVirtualLabFinal')) {
+          // Try to access the iframe's content and call its setTheme function
+          try {
+            frame.contentWindow.setTheme(themeName);
+          } catch (e) {
+            console.error('Could not set theme in iframe:', e);
+          }
+        }
+        
+        // Store theme preference
+        localStorage.setItem('preferredTheme', themeName);
+      }
+      
+      // Apply saved theme on load
+      window.onload = function() {
+        const savedTheme = localStorage.getItem('preferredTheme');
+        if (savedTheme) {
+          setTheme(savedTheme);
+        }
+      };
+    </script>
+  </body>
+</html>

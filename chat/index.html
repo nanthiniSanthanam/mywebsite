@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyWebsite - Chat</title>
+    <!-- Link to your existing Chat.css file -->
+    <link rel="stylesheet" href="Chat.css" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <header>
+        <div class="logo">MyWebsite</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/chat" class="active">AI Chat</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="chat-main">
+        <div class="chat-header">
+          <h1>AI Assistant</h1>
+          <div class="model-selector">
+            <label for="model-select">AI Model:</label>
+            <select id="model-select">
+              <option value="gpt-4">GPT-4 (Advanced)</option>
+              <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Fast)</option>
+              <option value="claude-2">Claude 2 (Balanced)</option>
+              <option value="claude-3-opus">Claude 3 Opus (Best)</option>
+            </select>
+          </div>
+          <button class="clear-chat-btn" id="clear-chat-btn">Clear Chat</button>
+        </div>
+
+        <div class="chat-interface">
+          <div class="chat-messages" id="chat-messages">
+            <!-- Chat messages will be inserted here dynamically -->
+            <div id="messagesEnd"></div>
+          </div>
+
+          <form class="chat-input-form" id="chat-form">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="Type your message here..."
+            />
+            <button type="submit" id="send-btn">Send</button>
+          </form>
+        </div>
+
+        <div class="chat-info">
+          <h3>About AI Chat</h3>
+          <p>
+            This chat demonstrates integration with an LLM (Large Language Model)
+            API. In a real application, your messages would be sent to a backend
+            server, which would then forward them to an AI service like OpenAI's GPT
+            or Anthropic's Claude.
+          </p>
+          <p>
+            For this demo, responses are simulated but show how you would implement
+            the frontend portion of an AI chatbot.
+          </p>
+
+          <div class="sample-questions">
+            <h4>Try asking:</h4>
+            <ul>
+              <li class="sample-question">"Hello, how are you today?"</li>
+              <li class="sample-question">"What's the weather like?"</li>
+              <li class="sample-question">"Can you help me with programming?"</li>
+              <li class="sample-question">"What time is it right now?"</li>
+              <li class="sample-question">"Tell me a fun fact about AI"</li>
+            </ul>
+          </div>
+
+          <div class="chat-footer">
+            <p>&copy; 2025 MyWebsite AI Chat Demo. All rights reserved.</p>
+            <p>
+              <a href="/terms">Terms of Service</a> |
+              <a href="/privacy">Privacy Policy</a>
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Include the JavaScript file -->
+    <script src="Chat.js"></script>
+  </body>
+</html>

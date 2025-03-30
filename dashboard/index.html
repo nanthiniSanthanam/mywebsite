@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyWebsite - Dashboard</title>
+    <!-- Link to your existing Dashboard.css file -->
+    <link rel="stylesheet" href="Dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <header>
+        <div class="logo">MyWebsite</div>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/chat">AI Chat</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      <main class="dashboard-main">
+        <div class="dashboard-header">
+          <h1>Analytics Dashboard</h1>
+          <div class="time-range-selector">
+            <button id="btn-week">Weekly</button>
+            <button id="btn-month">Monthly</button>
+            <button id="btn-year">Yearly</button>
+          </div>
+        </div>
+        <!-- This container will be updated dynamically -->
+        <div id="dashboard-content"></div>
+      </main>
+      
+      <footer>
+        <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon">Facebook</a>
+          <a href="#" class="social-icon">Twitter</a>
+          <a href="#" class="social-icon">LinkedIn</a>
+        </div>
+      </footer>
+    </div>
+    
+    <!-- Link to the JavaScript file -->
+    <script src="Dashboard.js"></script>
+  </body>
+</html>
